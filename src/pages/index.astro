@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Section from '../components/Section.astro';
+import PortfolioGrid from '../components/PortfolioGrid.astro';
+import PeopleGrid from '../components/PeopleGrid.astro';
+import PressStrip from '../components/PressStrip.astro';
+import Footer from '../components/Footer.astro';
+
+import { intro, portfolio, team, advisory, press, footer } from '../content/siteData';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<BaseLayout>
+  <Nav />
+  
+  <!-- Hero Section -->
+  <section id="intro" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src={`${base}assets/hero-bg.jpeg`}
+        alt="Climate VC Hero Background" 
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-charcoal-950/80 via-charcoal-950/70 to-charcoal-950"></div>
+    </div>
+    
+    <!-- Hero Content -->
+    <div class="relative z-10 container mx-auto px-6 py-32 text-center">
+      <h1 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-8 leading-tight tracking-tight">
+        {intro.headline}
+      </h1>
+      <div class="max-w-4xl mx-auto">
+        <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">
+          {intro.body}
+        </p>
+      </div>
+      
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <a href="#portfolio" aria-label="Scroll to portfolio">
+          <svg class="w-6 h-6 text-mint-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Portfolio Section -->
+  <Section id="portfolio" title="Portfolio" subtitle="Our Investments" darkBg={false}>
+    <PortfolioGrid items={portfolio} />
+  </Section>
+  
+  <!-- Team Section -->
+  <Section id="team" title="Team" subtitle="Who We Are" darkBg={true}>
+    <PeopleGrid people={team} showRole={true} />
+  </Section>
+  
+  <!-- Advisory Board Section -->
+  <Section id="advisory" title="Advisory Board" subtitle="Our Advisors" darkBg={false}>
+    <PeopleGrid people={advisory} showRole={false} />
+  </Section>
+  
+  <!-- Press / As Seen On Section -->
+  <Section id="press" title="As Seen On" subtitle="In The News" darkBg={true}>
+    <PressStrip items={press} />
+  </Section>
+  
+  <Footer content={footer} />
+</BaseLayout>
+
+<style>
+  /* Additional hero styles */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0) translateX(-50%);
+    }
+    50% {
+      transform: translateY(10px) translateX(-50%);
+    }
+  }
+  
+  .animate-bounce {
+    animation: bounce 2s ease-in-out infinite;
+  }
+</style>
+

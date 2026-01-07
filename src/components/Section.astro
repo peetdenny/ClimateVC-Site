@@ -1,0 +1,33 @@
+---
+interface Props {
+  id: string;
+  title?: string;
+  subtitle?: string;
+  darkBg?: boolean;
+  containerClass?: string;
+}
+
+const { id, title, subtitle, darkBg = false, containerClass = "" } = Astro.props;
+---
+
+<section 
+  id={id} 
+  class={`py-20 md:py-32 ${darkBg ? 'bg-charcoal-900' : 'bg-charcoal-950'}`}
+>
+  <div class={`container mx-auto px-6 ${containerClass}`}>
+    {title && (
+      <div class="text-center mb-16">
+        {subtitle && (
+          <p class="text-mint-400 font-medium text-sm uppercase tracking-wider mb-3">
+            {subtitle}
+          </p>
+        )}
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+          {title}
+        </h2>
+      </div>
+    )}
+    <slot />
+  </div>
+</section>
+

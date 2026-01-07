@@ -1,0 +1,60 @@
+---
+import type { FooterContent } from '../content/siteData';
+
+interface Props {
+  content: FooterContent;
+}
+
+const { content } = Astro.props;
+const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<footer class="bg-charcoal-900 border-t border-charcoal-800 py-16">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto">
+      <!-- Logo -->
+      <div class="mb-12 text-center">
+        <img src={`${base}assets/wordmark.png`} alt="Climate VC" class="h-10 mx-auto" />
+      </div>
+      
+      <!-- Disclaimers -->
+      <div class="mb-8 text-center">
+        <p class="text-gray-500 text-xs leading-relaxed">
+          {content.disclaimers}
+        </p>
+      </div>
+      
+      <!-- Company Details -->
+      <div class="mb-8 text-center">
+        <p class="text-gray-500 text-xs leading-relaxed">
+          {content.companyDetails}
+        </p>
+      </div>
+      
+      <!-- Links -->
+      <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
+        <a 
+          href={content.diversityPolicyUrl}
+          class="text-mint-400 hover:text-mint-300 text-sm font-medium transition-colors"
+        >
+          Diversity Policy
+        </a>
+        <a 
+          href="mailto:info@climate.vc"
+          class="text-mint-400 hover:text-mint-300 text-sm font-medium transition-colors"
+        >
+          Contact Us
+        </a>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="text-center">
+        <p class="text-gray-600 text-xs">
+          &copy; {currentYear} Climate VC Limited. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+

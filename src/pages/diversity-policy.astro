@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { footer } from '../content/siteData';
+---
+
+<BaseLayout title="Diversity Policy - Climate VC">
+  <Nav />
+  
+  <main class="pt-24 pb-20 min-h-screen">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h1 class="text-5xl md:text-6xl font-bold text-white mb-8">
+        Diversity & Inclusion Policy
+      </h1>
+      
+      <div class="prose prose-invert prose-lg max-w-none">
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-mint-400 mb-4">Our Commitment</h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Climate VC is committed to fostering, cultivating, and preserving a culture of diversity, 
+            equity, and inclusion. We recognize that diverse teams build better companies and that the 
+            climate crisis affects all communities, particularly those historically underrepresented in 
+            venture capital and technology.
+          </p>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-mint-400 mb-4">Our Values</h2>
+          <div class="space-y-4 text-gray-300">
+            <div>
+              <h3 class="text-xl font-semibold text-white mb-2">Inclusive Investment</h3>
+              <p class="leading-relaxed">
+                We actively seek out and support founders from underrepresented backgrounds, including 
+                women, people of color, LGBTQ+ individuals, and people with disabilities.
+              </p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-white mb-2">Equitable Access</h3>
+              <p class="leading-relaxed">
+                We work to remove barriers to access for entrepreneurs from all backgrounds, providing 
+                mentorship, resources, and capital to diverse founding teams.
+              </p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-white mb-2">Climate Justice</h3>
+              <p class="leading-relaxed">
+                We recognize that climate change disproportionately affects marginalized communities and 
+                prioritize solutions that address environmental justice.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-mint-400 mb-4">Our Actions</h2>
+          <ul class="list-disc list-inside space-y-2 text-gray-300">
+            <li>Maintain diverse investment committees and advisory boards</li>
+            <li>Partner with organizations that support underrepresented founders</li>
+            <li>Publish diversity metrics and track progress transparently</li>
+            <li>Provide unconscious bias training for our team and portfolio companies</li>
+            <li>Create inclusive events and networking opportunities</li>
+            <li>Support portfolio companies in building diverse teams</li>
+          </ul>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-mint-400 mb-4">Contact</h2>
+          <p class="text-gray-300 leading-relaxed">
+            We are continuously learning and improving our approach to diversity and inclusion. 
+            If you have feedback or suggestions, please contact us at 
+            <a href="mailto:info@climate.vc" class="text-mint-400 hover:text-mint-300 underline">
+              info@climate.vc
+            </a>
+          </p>
+        </section>
+
+        <section>
+          <p class="text-gray-500 text-sm">
+            Last updated: January 2026
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+  
+  <Footer content={footer} />
+</BaseLayout>
+
+<style>
+  .prose h2 {
+    @apply mt-8 mb-4;
+  }
+  
+  .prose h3 {
+    @apply mt-6 mb-3;
+  }
+  
+  .prose p {
+    @apply mb-4;
+  }
+  
+  .prose ul {
+    @apply mb-4;
+  }
+</style>
+
